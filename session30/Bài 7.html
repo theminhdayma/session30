@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function check(arr, n) {
+            let arrChild = null;  // Mảng con nhỏ nhất
+            let arrChildSum = Infinity;  // Tổng số phần tử của mảng con nhỏ nhất
+            let currentSubset = [];
+            let currentSum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                currentSubset = [arr[i]];  // Mảng con hiện tại chứa phần tử arr[i]
+                currentSum = arr[i];  // Tổng của mảng con hiện tại
+
+                for (let j = i + 1; j < arr.length; j++) {// thêm phần tử vào cuối mảng con
+                    currentSubset.push(arr[j]);
+                    currentSum += arr[j];
+
+                    if (currentSum > n && currentSubset.length < arrChildSum) {
+                        // Nếu tổng của mảng con hiện tại lớn hơn n
+                        // và mảng con này có ít phần tử hơn mảng con nhỏ nhất đã tìm thấy trước đó
+                        // thì cập nhật mảng con nhỏ nhất và tổng phần tử của nó
+                        arrChild = currentSubset;
+                        arrChildSum = currentSubset.length;
+                        break;
+                    }
+                }
+            }
+            console.log(arrChild);
+        }
+
+        let arr = [4, 8, 2, 3, 7, -3, -6, -1, -9];
+        let a = parseInt(prompt("Nhập 1 số nguyên bất kỳ"));
+        let result = check(arr, a);
+
+        if (result !== null) {
+            console.log("Mảng con có tổng bé nhất nhưng lớn hơn số truyền vào là: " + result);
+        } else {
+            console.log("Không có mảng con thỏa mãn");
+        }
+    </script>
+</body>
+</html>

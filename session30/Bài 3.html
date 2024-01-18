@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function arrange(str){
+            let arr = [];
+            for(let i=0; i<str.length; i++){
+                if(/[a-zA-Z]/.test(str[i])){
+                    arr.unshift(str[i]);
+                }else if(/[0-9]/.test(str[i])){
+                    let midIndex = Math.floor(arr.length/2);
+                    arr.splice(midIndex, 0, str[i]);
+                }else{
+                    arr.push(str[i]);
+                }
+            }  
+            return arr;
+        }
+
+        let str = prompt("Nhập vào 1 chuỗi ký tự bất kỳ");
+        console.log("Chuỗi trước khi được sắp xếp: " + str);
+        console.log("Chuỗi sau khi được sắp xếp là: " + arrange(str));
+    </script>
+</body>
+</html>

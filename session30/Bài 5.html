@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function CapitalizeLastCharacter(str){
+            for(let i=0; i<str.length; i++){
+                str[0].toUpperCase();
+                if(str[i]===" "){
+                    str[i-1].toUpperCase();
+                }
+            }
+            console.log(str);
+        }
+        let arr ="nguyễn thế minh";
+
+        console.log("Chuỗi sau khi được in hoa các phần tử đầu tiên là: ");
+        CapitalizeLastCharacter(str);
+    </script>
+</body>
+</html>

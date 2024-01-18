@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Đệ quy – Recursion là một phương pháp giải toán mà 
+        //trong đó lời giải của bài toán phụ thuộc vào một trường hợp nhỏ hơn 
+        //của cùng một bài toán đó
+
+
+        // ==> Hàm đệ quy là trong khi thực thi hàm mà lại gọi đến chính hàm đó
+
+        //Bonus: Phần cơ sở: là trường hợp mà bài toán được giải quyết mà không cần phải gọi lại chính nó. 
+                //Mục đích của phần cơ sở cũng là việc vòng gặp gọi hàm sẽ được dừng lại tại 1 điều kiện xác định, 
+                //tránh xảy ra vòng lặp vô hạn.
+
+                //Phần đệ quy: là phần xử lý gọi lại hàm, các hành động này sẽ được xử lý gọi liên tiếp 
+                //cho đến khi lời gọi đến phần cơ sở.
+
+    function fibonacci(n) {
+        if (n === 0) { // Trường hợp cơ bản: không có phần tử nào để in
+            return [];
+        } else if (n === 1) { // Trường hợp cơ bản: chỉ có một phần tử là 0
+            return [0];
+        } else if (n === 2) { // Trường hợp cơ bản: chỉ có hai phần tử là 0 và 1
+            return [0, 1];
+        } else { // Trường hợp chung: tính dãy Fibonacci với n-1 phần tử trước đó
+            let fibo = fibonacci(n - 1); // Gọi đệ quy để tính dãy Fibonacci với n-1 phần tử
+            fibo.push(fibo[fibo.length - 1] + fibo[fibo.length - 2]);
+            // Tính phần tử tiếp theo bằng cách cộng hai phần tử cuối cùng của dãy Fibonacci
+            return fibo;
+        }
+    }
+
+    let n = parseInt(prompt("Nhập số nguyên dương: "));
+    let fibo = fibonacci(n);
+    console.log(`Dãy Fibonacci với ${n} phần tử là: ` + fibo.join(", "));
+    </script>
+</body>
+</html>

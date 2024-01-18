@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function check(arr, n){
+            let arrNumber = [];
+            let found = false;
+            for(let i=0; i<arr.length-2; i++){
+                for(let j=i+1; j<arr.length-1; j++){
+                    for(let k=j+1; k<arr.length; k++){
+                        if(arr[i]+arr[j]+arr[k]===n){
+                            arrNumber.push(arr[i], arr[j], arr[k]);
+                            console.log(arr[i], arr[j], arr[k]);
+                            found=true
+                            break;
+                        }
+                    }
+                }
+            }
+            if(!found){
+                console.log("Không có mảng con thỏa mãn");
+            }
+        }
+
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let a = parseInt(prompt("Nhập số nguyên bất kỳ"));
+        console.log("Số nguyễn ngẫu nhiên là: " +a);
+
+        console.log("Mảng có 3 phần từ là: ");
+        check(arr, a);
+    </script>
+</body>
+</html>

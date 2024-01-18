@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <script>
+        function check(n) {
+            let sum = 0;
+            let arr = [];
+            for (let i = 1; i <= n; i += 2) {
+                arr.push(i);
+                sum += i;
+            }
+            if (sum % 2 === 0) {
+                sum -= arr[arr.length - 1];
+                arr.pop();
+            }
+            console.log("Tổng các số lẻ là: " +sum);
+            return arr;
+        }
+
+        let a = parseInt(prompt("Nhập 1 số nguyên dương bất kỳ:"));
+        console.log("Các số nguyên lẻ là:" +check(a));
+    </script>
+</body>
+</html>
